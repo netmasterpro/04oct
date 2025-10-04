@@ -19,7 +19,7 @@ body {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  max-width: 700px;
+  max-width: 90%;
 }
 
 .pantalla.activo {
@@ -46,27 +46,29 @@ button:hover {
 
 /* Carta */
 #carta h1 {
-  font-size: 32px;
+  font-size: 6vw;
   margin-bottom: 20px;
   text-shadow: 2px 2px 5px #ffb3c6;
 }
 
 #carta p {
-  font-size: 20px;
+  font-size: 4vw;
   line-height: 1.8;
 }
 
 /* Pantalla batería baja */
 #bateriaBaja h2 {
-  font-size: 24px;
+  font-size: 5vw;
   margin-top: 20px;
   color: #ff4e50;
 }
 
 /* Icono batería */
 .icono-bateria {
-  width: 80px;
-  height: 40px;
+  width: 40vw;
+  max-width: 200px;
+  height: 20vw;
+  max-height: 80px;
   border: 3px solid #ff4e50;
   border-radius: 5px;
   margin: 0 auto;
@@ -87,7 +89,8 @@ button:hover {
 
 /* Corazón animación */
 .corazon-wrapper {
-  width: 250px;
+  width: 50vw;
+  max-width: 300px;
   margin: 20px auto;
 }
 
@@ -130,4 +133,13 @@ button:hover {
 @keyframes fadeIn {
   from {opacity: 0; transform: scale(0.95);}
   to {opacity: 1; transform: scale(1);}
+}
+
+/* Media queries para PC y pantallas grandes */
+@media(min-width: 768px){
+  #carta h1 { font-size: 36px; }
+  #carta p { font-size: 20px; }
+  #bateriaBaja h2 { font-size: 24px; }
+  .icono-bateria { width: 200px; height: 80px; }
+  .corazon-wrapper { width: 250px; }
 }
