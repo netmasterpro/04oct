@@ -3,14 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feliz 3 Meses ❤️</title>
+  <title>Carta para Nayeli ❤️</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>💖 Feliz 3 Meses Mi Amor 💖</h1>
-  <canvas id="juego"></canvas>
-  <div id="mensaje"></div>
-  <div id="final">🎆 FELIZ 3 MESES, MI AMOR ❤️🎆</div>
+  <!-- Pantalla inicial: Carta -->
+  <div id="carta" class="pantalla">
+    <h1>💌 Para mi amada Nayeli 💌</h1>
+    <p>
+      Amor, desde que llegaste a mi vida todo cambió, tus ojitos de uva 🍇 iluminan mis días
+      y tu sonrisa me da fuerzas para seguir adelante.  
+      Cada palabra tuya, cada gesto, cada detalle… me hacen sentir el hombre más afortunado.  
+      Tú eres mi paz, mi alegría, mi apoyo y mi mayor motivación.  
+      Admiro tu dulzura, tu paciencia, tu forma única de amar y la manera en que llenas
+      mi corazón de ternura.  
+      Quiero que sepas que siempre estaré para ti, para cuidarte, apoyarte y amarte en cada momento.  
+      Eres todo lo que siempre soñé, y más.  
+    </p>
+    <button id="verMasBtn">💖 Ver más 💖</button>
+  </div>
+
+  <!-- Pantalla batería baja -->
+  <div id="bateriaBaja" class="pantalla oculto">
+    <div class="icono-bateria">
+      <div class="nivel"></div>
+    </div>
+    <h2>Batería baja… mi amor necesita recargarse contigo 💕</h2>
+  </div>
+
+  <!-- Pantalla animación de carga -->
+  <div id="cargaCorazon" class="pantalla oculto">
+    <h1 id="mensaje">Amor, conecta tu celular al cargador ⚡</h1>
+    
+    <div class="corazon-wrapper">
+      <svg viewBox="0 0 200 200" class="corazon">
+        <defs>
+          <linearGradient id="gradiente" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#ff4e50"/>
+            <stop offset="50%" stop-color="#ff6f61"/>
+            <stop offset="100%" stop-color="#ff0000"/>
+          </linearGradient>
+          <clipPath id="clip">
+            <path d="M100 180 
+              C 20 120, 0 70, 50 40 
+              A 30 30 0 0 1 100 60 
+              A 30 30 0 0 1 150 40 
+              C 200 70, 180 120, 100 180 Z" />
+          </clipPath>
+        </defs>
+        <!-- Fondo -->
+        <path d="M100 180 
+          C 20 120, 0 70, 50 40 
+          A 30 30 0 0 1 100 60 
+          A 30 30 0 0 1 150 40 
+          C 200 70, 180 120, 100 180 Z"
+          fill="#ddd" stroke="black" stroke-width="2"/>
+        <!-- Relleno -->
+        <rect class="relleno" x="0" y="200" width="200" height="200" fill="url(#gradiente)" clip-path="url(#clip)" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Corazones flotando -->
+  <div id="corazones"></div>
+
+  <!-- 🎶 Audios -->
+  <audio id="musicaFondo" src="musica.mp3" loop></audio>
+  <audio id="sonidoBateria" src="battery.mp3"></audio>
+
   <script src="script.js"></script>
 </body>
 </html>
