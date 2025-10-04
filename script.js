@@ -21,7 +21,7 @@ window.addEventListener("click", () => {
   }
 }, { once: true });
 
-// Botón Ver más -> batería baja -> luego corazón
+// Botón Ver más -> batería baja -> luego pantalla de carga
 document.getElementById("verMasBtn").addEventListener("click", () => {
   carta.classList.remove("activo");
   bateriaBaja.classList.add("activo");
@@ -32,10 +32,11 @@ document.getElementById("verMasBtn").addEventListener("click", () => {
   setTimeout(() => {
     bateriaBaja.classList.remove("activo");
     cargaCorazon.classList.add("activo");
+    mensaje.innerHTML = "Amor, conecta tu celular al cargador ⚡";
   }, 3000);
 });
 
-// ⚡ Detectar carga real del celular o laptop
+// ⚡ Detectar carga real del celular
 if ('getBattery' in navigator) {
   navigator.getBattery().then(function(battery) {
     function checkCharging() {
@@ -46,9 +47,11 @@ if ('getBattery' in navigator) {
     battery.addEventListener('chargingchange', checkCharging);
     checkCharging();
   });
+} else {
+  alert("⚡ Lo sentimos, tu navegador no soporta detección de carga ⚡");
 }
 
-// ⚡ Animación de carga
+// ⚡ Animación de carga del corazón
 function iniciarCarga() {
   let carga = 0;
   const intervalo = setInterval(() => {
@@ -57,7 +60,8 @@ function iniciarCarga() {
       mostrarFinalRomantico();
     } else {
       carga += 10;
-      let nuevaY = 200 - (carga * 2);
+      const alturaSVG = corazonSvg.getBBox().height;
+      let nuevaY = alturaSVG - (alturaSVG * (carga / 100));
       relleno.setAttribute("y", nuevaY);
     }
   }, 500);
