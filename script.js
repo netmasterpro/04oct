@@ -35,7 +35,7 @@ document.getElementById("verMasBtn").addEventListener("click", () => {
   }, 3000);
 });
 
-// ⚡ Detectar carga real del celular
+// ⚡ Detectar carga real del celular o laptop
 if ('getBattery' in navigator) {
   navigator.getBattery().then(function(battery) {
     function checkCharging() {
@@ -45,11 +45,6 @@ if ('getBattery' in navigator) {
     }
     battery.addEventListener('chargingchange', checkCharging);
     checkCharging();
-  });
-} else {
-  // Modo escritorio: simulación de carga al click
-  cargaCorazon.addEventListener("click", () => {
-    iniciarCarga();
   });
 }
 
